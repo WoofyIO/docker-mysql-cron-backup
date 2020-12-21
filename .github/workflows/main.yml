@@ -12,7 +12,7 @@ on:
 
   # Run on cron
   schedule:
-    - cron: "40 22 * * *"
+    - cron: "40 22 1 * *"
 
 jobs:
   Build_Publish_and_Deploy:
@@ -52,9 +52,9 @@ jobs:
           with:
             push: true
             tags: ${{ secrets.DOCKER_REG_URL }}/mariadb_backups:latest,${{ secrets.DOCKER_REG_URL }}/mariadb_backups:${{ steps.prep.outputs.version }},${{ secrets.DOCKER_REG_URL }}/mariadb_backups:${{ steps.prep.outputs.commit }},${{ secrets.DOCKER_REG_URL }}/mariadb_backups:${{ steps.prep.outputs.created }}
-#      - 
-#          name: Deploy Image
-#          uses: fjogeleit/http-request-action@master
-#          with:
-#              url: ${{ secrets.DOCKER_DEP_URL }}
-#              method: 'POST'
+      - 
+          name: Deploy Image
+          uses: fjogeleit/http-request-action@master
+          with:
+              url: ${{ secrets.DOCKER_DEP_URL }}
+              method: 'POST'
