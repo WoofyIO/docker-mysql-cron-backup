@@ -51,7 +51,7 @@ jobs:
           uses: docker/build-push-action@v2
           with:
             push: true
-            tags: ${{ secrets.DOCKER_REG_URL }}/mysqlbackup:latest,${{ secrets.DOCKER_REG_URL }}/mysqlbackup:${{ steps.prep.outputs.version }},${{ secrets.DOCKER_REG_URL }}/mysqlbackup:${{ steps.prep.outputs.commit }},${{ secrets.DOCKER_REG_URL }}/mysqlbackup:${{ steps.prep.outputs.created }}
+            tags: ${{ secrets.DOCKER_REG_URL }}/mariadb_backups:latest,${{ secrets.DOCKER_REG_URL }}/mariadb_backups:${{ steps.prep.outputs.version }},${{ secrets.DOCKER_REG_URL }}/mariadb_backups:${{ steps.prep.outputs.commit }},${{ secrets.DOCKER_REG_URL }}/mariadb_backups:${{ steps.prep.outputs.created }}
 #      - 
 #          name: Deploy Image
 #          uses: fjogeleit/http-request-action@master
